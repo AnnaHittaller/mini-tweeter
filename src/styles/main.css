@@ -1,0 +1,43 @@
+.posts {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+}
+
+.post {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    width: 600px;
+    border: 2px solid rgb(87, 179, 148);
+    border-radius: 50px;
+    padding: 20px;
+    cursor: pointer;
+}
+
+.post img {
+    width: 80px;
+    height: 80px;
+    border: 2px solid rgb(87, 179, 148);
+    background-color: rgb(87, 179, 148);
+    border-radius: 50%;
+}
+
+.post-content {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.post-content-title {
+    font-weight: 700;
+    font-size: 18px;
+    text-align: left;
+}
+
+.post-content-date {
+    font-size: 12px;
+    text-align: left;
+    color: grey;
+}
