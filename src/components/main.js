@@ -40,22 +40,34 @@ export function Main() {
     const handleTweetChange = (e) => {
         setTweet(e.target.value)
     }
+    console.log(tweet)
 
    const sendTweet = async () => {
-			const requestBody = {
-				owner: "615cefd72b3e8272f6c87504",
-				text: {tweet},
-			};
 
-			try {
-				const response = await axios.post(
-					"https://twitter-express-server.vercel.app/posts/add",
-					requestBody
-				);
-				console.log(response.data); // Assuming you want to log the response data
-			} catch (error) {
-				console.error(error);
-			}
+			 try {
+					const response = await fetch(
+						"https://twitter-express-server.vercel.app/posts/add",
+						{
+							method: "POST",
+							headers: {
+								"Content-Type": "application/json",
+							},
+							body: JSON.stringify({
+								text: tweet,
+								owner: "615cefd72b3e8272f6c87504",
+							}),
+						}
+					);
+
+					if (response.ok) {
+						console.log("Tweet sent!");
+						setTweet("");
+					} else {
+						console.error("Something went wrong...");
+					}
+				} catch (error) {
+					console.error(error);
+				}
 		};
 
 
