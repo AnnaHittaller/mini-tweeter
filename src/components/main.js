@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react"
 import MainLayout from "../layouts/MainLayout";
 import '../styles/main.css'
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 export function Main() {
 
@@ -40,17 +41,36 @@ export function Main() {
         setTweet(e.target.value)
     }
 
+   const sendTweet = async () => {
+			const requestBody = {
+				owner: "615cefd72b3e8272f6c87504",
+				text: {tweet},
+			};
+
+			try {
+				const response = await axios.post(
+					"https://twitter-express-server.vercel.app/posts/add",
+					requestBody
+				);
+				console.log(response.data); // Assuming you want to log the response data
+			} catch (error) {
+				console.error(error);
+			}
+		};
+
 
 
     return (
 
+
         <MainLayout>
             <div className="main">
+
                 <form className="new-tweet">
                     <div className="new-tweet-input">
                         <img src="https://robohash.org/2LK.png" />
                         <input placeholder="What's happening?" type="textarea" value={tweet} onChange={handleTweetChange} />
-                        <button>Tweet</button>
+                        <button onClick={sendTweet}>Tweet</button>
                     </div>
                 </form>
                 <div>

@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import MainLayout from "../layouts/MainLayout";
 import '../styles/resultsPage.css'
 import { SearchContext } from "../context/SearchContext";
+import { Link } from "react-router-dom";
 
 function ResultsPage() {
 	const { query } = useContext(SearchContext);
@@ -54,25 +55,31 @@ function ResultsPage() {
 					<h3>In Posts:</h3>
 					{filteredResults && filteredResults.length > 0
 						? filteredResults.map((item, index) => (
-								<p key={index}>
-									<img src={item.owner.image} />
-									<div>
-										<p>{item.owner.username}</p>
+								<p className="post" key={index}>
+									<Link to={`/user/${item.owner._id}`}>
+										<img src={item.owner.image} />
+									</Link>
+									<div className="post-content">
+										<p className="post-content-title">{item.owner.username}</p>
 										<p>{item.text}</p>
-										<p>{item.date}</p>
+										<p className="post-content-date">
+											Posted on {new Date(item.date).toLocaleString()}
+										</p>
 									</div>
 								</p>
 						  ))
 						: "Sorry, no matching posts found"}
 				</div>
-				<div>
+				<div className="posts">
 					<h3>In Users:</h3>
 					{filteredUsers && filteredUsers.length > 0
 						? filteredUsers.map((item, index) => (
-								<p key={index}>
-									<img src={item.image} />
-									<div>
-									<p>{item.username}</p>
+								<p className="post" key={index}>
+									<Link to={`/user/${item._id}`}>
+										<img src={item.image} />
+									</Link>
+									<div className="post-content">
+										<p className="post-content-title">{item.username}</p>
 									</div>
 								</p>
 						  ))
