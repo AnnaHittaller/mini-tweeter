@@ -19,13 +19,13 @@ export function Main() {
                 // console.log(data)
                 setList(data.posts);
 
-                console.log("list",list)
+                console.log("list", list)
 
             } catch (error) {
                 console.log('Error', error)
             }
         }
-       
+
         fetchData();
 
 
@@ -62,8 +62,10 @@ export function Main() {
 
     return (
 
-			<MainLayout>
-				<div className="main">
+
+        <MainLayout>
+            <div className="main">
+
                 <form className="new-tweet">
                     <div className="new-tweet-input">
                         <img src="https://robohash.org/2LK.png" />
@@ -71,27 +73,27 @@ export function Main() {
                         <button onClick={sendTweet}>Tweet</button>
                     </div>
                 </form>
-					<div>
-      
-						<div className="posts">
-							{list.map((item, index) => (
-								<p className="post" key={index}>
-									<Link to={`/user/${item.owner._id}`}>
-										<img src={item.owner.image} />
-									</Link>
-									<div className="post-content">
-										<p className="post-content-title">{item.owner.username}</p>
-										<p>{item.text}</p>
-										<p className="post-content-date">
-											Posted on {new Date(item.date).toLocaleString()}
-										</p>
-									</div>
-								</p>
-							))}
-						</div>
-					</div>
-				</div>
-			</MainLayout>
-		);
+                <div>
+
+                    <div className="posts">
+                        {list.map((item, index) => (
+                            <p className="post" key={index}>
+                                <Link to={`/user/${item.owner._id}`}>
+                                    <img src={item.owner.image} />
+                                </Link>
+                                <div className="post-content">
+                                    <p className="post-content-title">{item.owner.username}</p>
+                                    <Link className="post-content-text" to={`/post/${item._id}`} > {item.text}</Link>
+                                    <p className="post-content-date">
+                                        Posted on {new Date(item.date).toLocaleString()}
+                                    </p>
+                                </div>
+                            </p>
+                        ))}
+                    </div>
+                </div>
+            </div>
+        </MainLayout >
+    );
 
 }

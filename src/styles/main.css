@@ -91,3 +91,8 @@
     cursor: pointer;
     font-weight: 700;
 }
+
+.post-content-text {
+    text-decoration: none;
+    color: black;
+}
