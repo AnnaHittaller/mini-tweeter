@@ -25,6 +25,7 @@ aside {
 	height: 80px;
 	border: 2px solid rgb(87, 179, 148);
 	border-radius: 50%;
+    background-color: rgb(87, 179, 148);
 }
 
 .profile h3,
@@ -64,7 +65,13 @@ aside form button {
 	cursor: pointer;
 }
 
-aside button:nth-child(1) {
+.buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+.buttons button {
 	background-color: transparent;
 	padding: 0.5rem 0.75rem;
 	display: flex;
@@ -75,4 +82,6 @@ aside button:nth-child(1) {
 	border: 2px solid rgb(87, 179, 148);
 	color: rgb(53, 53, 53);
 	cursor: pointer;
+    margin-bottom: 1rem;
+    border-radius: 1rem;
 }
