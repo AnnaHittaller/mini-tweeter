@@ -6,6 +6,8 @@ export function Main() {
 
     const [list, setList] = useState([]);
 
+
+
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -20,6 +22,7 @@ export function Main() {
         }
        
         fetchData();
+
     }, [])
 
  
@@ -29,12 +32,12 @@ export function Main() {
             <div className="main">
                 <div>
                     <div className="posts">{list.map((item, index) => (
-                        <p key={index}>
+                        <p className="post" key={index}>
                             <img src={item.owner.image} />
-                            <div >
-                                <p>{item.owner.username}</p>
+                            <div className="post-content">
+                                <p className="post-content-title">{item.owner.username}</p>
                                 <p>{item.text}</p>
-                                <p>{item.date}</p>
+                                <p className="post-content-date">Posted on {item.date}</p>
                             </div>
                         </p>
                     ))}</div>
