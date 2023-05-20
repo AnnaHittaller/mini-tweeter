@@ -72,7 +72,7 @@ function ResultsPage() {
 								<p key={index}>
 									<img src={item.image} />
 									<div>
-										<p>{item.username}</p>
+									<p>{item.username}</p>
 									</div>
 								</p>
 						  ))

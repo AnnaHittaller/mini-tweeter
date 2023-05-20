@@ -12,7 +12,7 @@ function Sidebar() {
 	const navigate = useNavigate();
 	const { setQuery } = useContext(SearchContext);
 	const { isLoggedIn, logout } = useContext(AuthContext);
-	console.log(isLoggedIn);
+	//console.log(isLoggedIn);
 
 	const backHome = () => {
 		navigate("/");
@@ -45,6 +45,10 @@ function Sidebar() {
 				<button onClick={backHome}>
 					<RiHome7Fill className="icon" />
 					Home
+				</button>
+				<button onClick={()=> navigate("/all-users")}>
+					<BsFillPersonFill className="icon" />
+					Users List
 				</button>
 				{isLoggedIn ? (
 					<button onClick={logout}>
