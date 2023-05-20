@@ -16,7 +16,7 @@ function SearchBar() {
 		navigate("/results");
 	};
 
-	console.log(query);
+	// console.log(query);
 
 	return (
 		<form onSubmit={handleSubmit}>
