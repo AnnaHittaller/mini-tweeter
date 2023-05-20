@@ -1,0 +1,42 @@
+.login-page {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 2rem;
+}
+
+.login-form {
+	border: 2px solid rgb(87, 179, 148);
+	border-radius: 1rem;
+	padding: 2rem;
+	max-width: 600px;
+	margin-top: 2rem;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 0.5rem;
+}
+
+.login-form button {
+	background-color: transparent;
+	padding: 0.5rem 0.75rem;
+	font-size: 1rem;
+	gap: 0.5rem;
+	line-height: 1rem;
+	border: 2px solid rgb(87, 179, 148);
+	color: rgb(53, 53, 53);
+	cursor: pointer;
+	margin-top: 1rem;
+	border-radius: 1rem;
+}
+
+.login-form input {
+    
+	padding: 0.5rem;
+	font-size: 1rem;
+	border: none;
+	outline: none;
+	color: rgb(53, 53, 53);
+    border: 1px solid rgb(87, 179, 148);
+    background-color: rgb(187, 255, 232);
+}

@@ -21,6 +21,7 @@ export function Main() {
                 console.log('Error', error)
             }
         }
+       
         fetchData();
 
 
@@ -29,11 +30,13 @@ export function Main() {
 
     }, [])
 
+
     const [tweet, setTweet] = useState('')
 
     const handleTweetChange = (e) => {
         setTweet(e.target.value)
     }
+
 
 
     return (
