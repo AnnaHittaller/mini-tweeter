@@ -20,11 +20,12 @@ export function Main() {
                 console.log('Error', error)
             }
         }
+       
         fetchData();
 
     }, [])
 
-
+ 
 
     return (
         <MainLayout>
