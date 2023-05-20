@@ -1,3 +1,7 @@
+.main {
+    padding-top: 10px;
+}
+
 .posts {
     display: flex;
     flex-direction: column;
@@ -40,4 +44,50 @@
     font-size: 12px;
     text-align: left;
     color: grey;
+}
+
+.new-tweet {
+    gap: 20px;
+    width: 600px;
+    background-color: rgb(187, 255, 232);
+    border-radius: 50px;
+    padding: 20px;
+    margin-left: 20px;
+    padding-top: 20px;
+}
+
+.new-tweet-input {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.new-tweet input {
+    width: 50%;
+    border-radius: 20px;
+    display: flex;
+    justify-content: flex-start;
+    padding: 10px;
+    font-size: 18px;
+    border: none;
+    width: 350px;
+}
+
+.new-tweet img {
+    width: 80px;
+    height: 80px;
+    border: 2px solid rgb(87, 179, 148);
+    background-color: rgb(87, 179, 148);
+    border-radius: 50%;
+}
+
+.new-tweet button {
+    background-color: rgb(87, 179, 148);
+    color: white;
+    border-radius: 50%;
+    width: 80px;
+    border: none;
+    box-shadow: 20px;
+    cursor: pointer;
+    font-weight: 700;
 }

@@ -9,6 +9,7 @@ export function Main() {
 
 
 
+
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -16,7 +17,9 @@ export function Main() {
                 const data = await response.json();
                 // console.log(data)
                 setList(data.posts);
+
                 console.log("list",list)
+
             } catch (error) {
                 console.log('Error', error)
             }
@@ -24,14 +27,34 @@ export function Main() {
        
         fetchData();
 
+
+
+
+
     }, [])
 
- 
+
+    const [tweet, setTweet] = useState('')
+
+    const handleTweetChange = (e) => {
+        setTweet(e.target.value)
+    }
+
+
 
     return (
+
 			<MainLayout>
 				<div className="main">
+      form className="new-tweet">
+                    <div className="new-tweet-input">
+                        <img src="https://robohash.org/2LK.png" />
+                        <input placeholder="What's happening?" type="textarea" value={tweet} onChange={handleTweetChange} />
+                        <button>Tweet</button>
+                    </div>
+                </form>
 					<div>
+      
 						<div className="posts">
 							{list.map((item, index) => (
 								<p className="post" key={index}>
@@ -52,4 +75,5 @@ export function Main() {
 				</div>
 			</MainLayout>
 		);
+
 }
