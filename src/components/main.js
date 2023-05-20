@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react"
+import MainLayout from "../layouts/MainLayout";
 import '../styles/main.css'
 
 export function Main() {
@@ -23,20 +24,22 @@ export function Main() {
 
 
     return (
-        <div className="main">
-            <div>
-                <div className="posts">{list.map((item, index) => (
-                    <p key={index}>
-                        <img src={item.owner.image} />
-                        <div >
-                            <p>{item.owner.username}</p>
-                            <p>{item.text}</p>
-                            <p>{item.date}</p>
-                        </div>
-                    </p>
-                ))}</div>
+        <MainLayout>
+            <div className="main">
+                <div>
+                    <div className="posts">{list.map((item, index) => (
+                        <p key={index}>
+                            <img src={item.owner.image} />
+                            <div >
+                                <p>{item.owner.username}</p>
+                                <p>{item.text}</p>
+                                <p>{item.date}</p>
+                            </div>
+                        </p>
+                    ))}</div>
 
+                </div>
             </div>
-        </div>
+        </MainLayout>
     )
 }

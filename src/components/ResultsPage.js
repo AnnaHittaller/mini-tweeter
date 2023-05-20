@@ -4,7 +4,7 @@ import '../styles/resultsPage.css'
 import { SearchContext } from "../context/SearchContext";
 
 function ResultsPage() {
-    const { query } = useContext(SearchContext);
+	const { query } = useContext(SearchContext);
 	return (
 		<MainLayout>
 			<div className="page">
