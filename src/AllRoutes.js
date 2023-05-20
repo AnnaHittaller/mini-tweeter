@@ -13,7 +13,7 @@ function AllRoutes() {
             <Route path="/login" element={<LoginPage/>}/>
             <Route path="/all-users" element={<AllUsersPage/>}/>
             <Route path="/user/:id" element={<UserPage/>}/>
-            <Route path="post/:id"/>
+            <Route path="/post/:id"/>
             <Route path="*" element={<h2>Error 404: Page Not Found</h2>}/>
         </Routes>
     );
