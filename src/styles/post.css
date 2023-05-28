@@ -1,0 +1,91 @@
+.one-page-post-div {
+    display: flex;
+    justify-content: center;
+}
+
+
+.one-page-post {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+}
+
+.one-page-post-back {
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+.one-page-post-tweet {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+    gap: 20px;
+    width: 600px;
+    margin-left: 20px;
+    margin-top: 20px;
+}
+
+
+
+.one-page-post-tweet p {
+    font-size: 1.5rem;
+}
+
+.one-page-post-tweet-span {
+    color: rgb(87, 179, 148);
+    font-weight: 700;
+    text-decoration: none;
+}
+
+
+.one-post {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 20px;
+    width: 600px;
+    border: 2px solid rgb(87, 179, 148);
+    border-radius: 50px;
+    padding: 20px;
+    cursor: pointer;
+}
+
+.one-post-user {
+    display: flex;
+}
+
+.one-post img {
+    width: 80px;
+    height: 80px;
+    border: 2px solid rgb(87, 179, 148);
+    background-color: rgb(87, 179, 148);
+    border-radius: 50%;
+}
+
+.one-post-content {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.one-post-content-title {
+    font-weight: 700;
+    font-size: 18px;
+    text-align: left;
+    text-decoration: none;
+    color: black;
+}
+
+.one-post-content-text {
+    text-decoration: none;
+    color: black;
+}
+
+.one-post-content-date {
+    font-size: 12px;
+    text-align: left;
+    color: grey;
+}

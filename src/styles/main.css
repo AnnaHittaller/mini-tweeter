@@ -31,6 +31,7 @@
 .post-content {
     display: flex;
     flex-direction: column;
+    text-decoration: none;
     gap: 5px;
 }
 
@@ -38,7 +39,11 @@
     font-weight: 700;
     font-size: 18px;
     text-align: left;
+    text-decoration: none;
+    color: black;
 }
+
+
 
 .post-content-date {
     font-size: 12px;

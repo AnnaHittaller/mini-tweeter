@@ -14,7 +14,7 @@ export function Main() {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await fetch('https://twitter-express-server.vercel.app/posts/list');
+                const response = await fetch('https://twitter-express-server.vercel.app/posts/list?api_key=001wdpt014');
                 const data = await response.json();
                 // console.log(data)
                 setList(data.posts);
@@ -42,33 +42,33 @@ export function Main() {
     }
     console.log(tweet)
 
-   const sendTweet = async () => {
+    const sendTweet = async () => {
 
-			 try {
-					const response = await fetch(
-						"https://twitter-express-server.vercel.app/posts/add",
-						{
-							method: "POST",
-							headers: {
-								"Content-Type": "application/json",
-							},
-							body: JSON.stringify({
-								text: tweet,
-								owner: "615cefd72b3e8272f6c87504",
-							}),
-						}
-					);
+        try {
+            const response = await fetch(
+                "https://twitter-express-server.vercel.app/posts/add?api_key=001wdpt014",
+                {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({
+                        text: tweet,
+                        owner: "615cefd72b3e8272f6c87504",
+                    }),
+                }
+            );
 
-					if (response.ok) {
-						console.log("Tweet sent!");
-						setTweet("");
-					} else {
-						console.error("Something went wrong...");
-					}
-				} catch (error) {
-					console.error(error);
-				}
-		};
+            if (response.ok) {
+                console.log("Tweet sent!");
+                setTweet("");
+            } else {
+                console.error("Something went wrong...");
+            }
+        } catch (error) {
+            console.error(error);
+        }
+    };
 
 
 
@@ -86,15 +86,14 @@ export function Main() {
                     </div>
                 </form>
                 <div>
-
                     <div className="posts">
-                        {list.map((item, index) => (
+                        {list?.map((item, index) => (
                             <p className="post" key={index}>
                                 <Link to={`/user/${item.owner._id}`}>
                                     <img src={item.owner.image} />
                                 </Link>
                                 <div className="post-content">
-                                    <p className="post-content-title">{item.owner.username}</p>
+                                    <Link className="post-content-title" to={`/user/${item.owner._id}`}>{item.owner.username}</Link>
                                     <Link className="post-content-text" to={`/post/${item._id}`} > {item.text}</Link>
                                     <p className="post-content-date">
                                         Posted on {new Date(item.date).toLocaleString()}
