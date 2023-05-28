@@ -3,7 +3,7 @@ import MainLayout from "../layouts/MainLayout";
 import "../styles/userPage.css";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { MdOutlineArrowBackIosNew } from 'react-icons/md'
+import { MdOutlineArrowBackIosNew } from "react-icons/md";
 
 function UserPage() {
 	const id = useParams();
@@ -20,7 +20,7 @@ function UserPage() {
 				const userData = await response.json();
 				//console.log("user-one", userData);
 				setUser(userData.user);
-				console.log(user);
+
 			} catch (error) {
 				console.log("Error", error);
 			}
@@ -29,25 +29,32 @@ function UserPage() {
 
 		/// Here I am fetching all tweets again
 
-		const fetchTweet = async () => {
-			try {
-				const response = await fetch(
-					`https://twitter-express-server.vercel.app/posts/list?api_key=${process.env.REACT_APP_MINI_TWEETER_API_KEY}`
-				);
-				const tweetData = await response.json();
-				setUserTweet(tweetData);
-				console.log("Here is user from tweet 0", userTweet.posts[0].owner.username);
-			} catch (error) {
-				console.log("Error", error);
+	}, [id]);
+	
+	useEffect(() => {
+		const fetchTweets = async () => {
+			if (user) {
+				try {
+					const response = await fetch(
+						`https://twitter-express-server.vercel.app/posts/listbyuser?user=${user._id}&api_key=${process.env.REACT_APP_MINI_TWEETER_API_KEY}`
+					);
+					const tweetData = await response.json();
+					if (response.ok) {
+						setUserTweet(tweetData.posts);
+					}
+				} catch (error) {
+					console.log("Error", error);
+				}
 			}
 		};
-		fetchTweet();
-	}, [id]);
-
+		fetchTweets();
+	}, [user]);
 	/// Here I try to filter all tweets with owner username that are equal to username from users list
 
 	// const filteredTweets = userTweet.filter(item => item.posts.owner.username === user.username);
 
+	console.log(user._id);
+	console.log("usertweet", userTweet);
 	return (
 		<MainLayout>
 			<div className="user-page">
@@ -65,7 +72,8 @@ function UserPage() {
 								<h2>{user.username}</h2>
 								<p className="user-email">
 									<strong>Email: </strong>
-									{user.email}</p>
+									{user.email}
+								</p>
 								<p>
 									<strong>Location: </strong>
 									{user.city}, {user.country}
@@ -89,8 +97,31 @@ function UserPage() {
 					)}
 				</div>
 				<div className="all-tweets-from">
-					<p >All tweets from <span className="all-tweets-from-span">{user.username}</span></p>
-
+					<p>
+						All tweets from{" "}
+						<span className="all-tweets-from-span">{user.username}</span>
+					</p>
+					<div>
+						{userTweet?.map((item, index) => (
+							<p className="post" key={index}>
+								<Link to={`/user/${item.owner._id}`}>
+									<img src={item.owner.image} />
+								</Link>
+								<div className="post-content">
+									<Link className="post-content-title">
+										{item.owner.username}
+									</Link>
+									<Link className="post-content-text" to={`/post/${item._id}`}>
+										{" "}
+										{item.text}
+									</Link>
+									<p className="post-content-date">
+										Posted on {new Date(item.date).toLocaleString()}
+									</p>
+								</div>
+							</p>
+						))}
+					</div>
 				</div>
 			</div>
 		</MainLayout>
