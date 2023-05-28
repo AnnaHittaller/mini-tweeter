@@ -15,7 +15,7 @@ function UserPage() {
 		const fetchUser = async () => {
 			try {
 				const response = await fetch(
-					`https://twitter-express-server.vercel.app/users/listone?id=${id.id}&api_key=001wdpt014`
+					`https://twitter-express-server.vercel.app/users/listone?id=${id.id}&api_key=${process.env.REACT_APP_MINI_TWEETER_API_KEY}`
 				);
 				const userData = await response.json();
 				//console.log("user-one", userData);
@@ -32,7 +32,7 @@ function UserPage() {
 		const fetchTweet = async () => {
 			try {
 				const response = await fetch(
-					`https://twitter-express-server.vercel.app/posts/list?api_key=001wdpt014`
+					`https://twitter-express-server.vercel.app/posts/list?api_key=${process.env.REACT_APP_MINI_TWEETER_API_KEY}`
 				);
 				const tweetData = await response.json();
 				setUserTweet(tweetData);

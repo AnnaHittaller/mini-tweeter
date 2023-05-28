@@ -16,7 +16,7 @@ export function Post() {
         const fetchPost = async () => {
             try {
                 const response = await fetch(
-                    `https://twitter-express-server.vercel.app/posts/listone?id=${id.id}&api_key=001wdpt014`
+                    `https://twitter-express-server.vercel.app/posts/listone?id=${id.id}&api_key=${process.env.REACT_APP_MINI_TWEETER_API_KEY}`
                 );
                 const postData = await response.json();
                 setPost(postData.post);

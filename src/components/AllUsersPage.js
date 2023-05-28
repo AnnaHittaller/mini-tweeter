@@ -11,7 +11,7 @@ function AllUsersPage() {
 		const fetchUser = async () => {
 			try {
 				const response = await fetch(
-					"https://twitter-express-server.vercel.app/users/list?api_key=001wdpt014"
+					`https://twitter-express-server.vercel.app/users/list?api_key=${process.env.REACT_APP_MINI_TWEETER_API_KEY}`
 				);
 				const userData = await response.json();
 				setUsers(userData.users);

@@ -14,7 +14,7 @@ export function Main() {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await fetch('https://twitter-express-server.vercel.app/posts/list?api_key=001wdpt014');
+                const response = await fetch(`https://twitter-express-server.vercel.app/posts/list?api_key=${process.env.REACT_APP_MINI_TWEETER_API_KEY}`);
                 const data = await response.json();
                 // console.log(data)
                 setList(data.posts);
@@ -46,7 +46,7 @@ export function Main() {
 
         try {
             const response = await fetch(
-                "https://twitter-express-server.vercel.app/posts/add?api_key=001wdpt014",
+                `https://twitter-express-server.vercel.app/posts/add?api_key=${process.env.REACT_APP_MINI_TWEETER_API_KEY}`,
                 {
                     method: "POST",
                     headers: {
@@ -93,7 +93,7 @@ export function Main() {
                                     <img src={item.owner.image} />
                                 </Link>
                                 <div className="post-content">
-                                    <Link className="post-content-title" to={`/user/${item.owner._id}`}>{item.owner.username}</Link>
+                                    <Link className="post-content-title" >{item.owner.username}</Link>
                                     <Link className="post-content-text" to={`/post/${item._id}`} > {item.text}</Link>
                                     <p className="post-content-date">
                                         Posted on {new Date(item.date).toLocaleString()}
