@@ -1,6 +1,10 @@
 .main {
     padding-top: 10px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
 }
+
 
 .posts {
     display: flex;
@@ -52,12 +56,13 @@
 }
 
 .new-tweet {
+
     gap: 20px;
     width: 600px;
     background-color: rgb(187, 255, 232);
     border-radius: 50px;
     padding: 20px;
-    margin-left: 20px;
+    /* margin-left: 20px; */
     padding-top: 20px;
 }
 

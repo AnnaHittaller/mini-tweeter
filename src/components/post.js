@@ -48,7 +48,6 @@ export function Post() {
                             <div className="one-post">
                                 <div className="one-post-user">
                                     <img src={post?.owner?.image} />
-
                                 </div>
                                 <div className="one-post-content">
                                     <Link to={`/user/${post?.owner?._id}`} className="one-post-content-title">{post?.owner?.username}</Link>
@@ -57,8 +56,6 @@ export function Post() {
                                         Posted on {new Date(post?.date).toLocaleString()}
                                     </p>
                                 </div>
-
-
                             </div>
                         ) : (
                             <p>Data is loading...</p>

@@ -30,7 +30,7 @@ function UserPage() {
 		/// Here I am fetching all tweets again
 
 	}, [id]);
-	
+
 	useEffect(() => {
 		const fetchTweets = async () => {
 			if (user) {
@@ -102,25 +102,23 @@ function UserPage() {
 						<span className="all-tweets-from-span">{user.username}</span>
 					</p>
 					<div>
-						{userTweet?.map((item, index) => (
-							<p className="post" key={index}>
-								<Link to={`/user/${item.owner._id}`}>
-									<img src={item.owner.image} />
-								</Link>
-								<div className="post-content">
-									<Link className="post-content-title">
-										{item.owner.username}
-									</Link>
-									<Link className="post-content-text" to={`/post/${item._id}`}>
-										{" "}
-										{item.text}
-									</Link>
-									<p className="post-content-date">
-										Posted on {new Date(item.date).toLocaleString()}
-									</p>
+						<div className="user-one-page-post">
+							{userTweet?.map((item, index) => (
+
+								<div className="user-one-post">
+									<div className="user-one-post-user">
+										<img src={item?.owner.image} />
+									</div>
+									<div className="user-one-post-content">
+										<Link to={`/user/${item.owner._id}`} className="user-one-post-content-title">{item.owner.username}</Link>
+										<p className="user-one-post-content-text">{item.text}</p>
+										<p className="user-one-post-content-date">
+											Posted on {new Date(item.date).toLocaleString()}
+										</p>
+									</div>
 								</div>
-							</p>
-						))}
+							))}
+						</div>
 					</div>
 				</div>
 			</div>

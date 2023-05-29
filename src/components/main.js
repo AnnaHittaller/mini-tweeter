@@ -76,8 +76,8 @@ export function Main() {
 
 
         <MainLayout>
-            <div className="main">
 
+            <div className="main">
                 <form className="new-tweet">
                     <div className="new-tweet-input">
                         <img src="https://robohash.org/2LK.png" />
@@ -93,7 +93,7 @@ export function Main() {
                                     <img src={item.owner.image} />
                                 </Link>
                                 <div className="post-content">
-                                    <Link className="post-content-title" >{item.owner.username}</Link>
+                                    <Link to={`/user/${item.owner._id}`} className="post-content-title" >{item.owner.username}</Link>
                                     <Link className="post-content-text" to={`/post/${item._id}`} > {item.text}</Link>
                                     <p className="post-content-date">
                                         Posted on {new Date(item.date).toLocaleString()}
@@ -103,7 +103,9 @@ export function Main() {
                         ))}
                     </div>
                 </div>
+
             </div>
+
         </MainLayout >
     );
 
